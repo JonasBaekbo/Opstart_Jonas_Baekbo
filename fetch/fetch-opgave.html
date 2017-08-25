@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+    crossorigin="anonymous">
+
+</head>
+
+<body>
+  <div id="content"></div>
+  <div id="test"></div>
+  <script>
+    fetch('https://swapi.co/api/people/').then((response) => {
+      if (response.status == 200) {
+        console.log("Det Virker!");
+        return response.json();
+      } else {
+        throw new Error('Der er sket en fejl!');
+      }
+    })
+      .then((json) => {
+        // Opgave 1
+        var content = document.getElementById('content');
+        content.innerHTML = '<p>Navn: ' + json.results[0].name + '</p>' +
+          '<p>Alder: ' + json.results[0].birth_year + '</p>' +
+          '<p>Højde: ' + json.results[0].height + '</p>' +
+          '<p>Køn: ' + json.results[0].gender + '</p>';
+          //________________________________________________________________
+
+
+        // opgave 2 og 3 samlet
+        var test = document.getElementById('test');
+        json.results.forEach(function (item, index, arr) {
+          console.log(json.results[index].name);
+          test.innerHTML += '<p><h3>' + json.results[index].name + '</h3></p>' +
+             '<p>Alder: ' + json.results[index].birth_year + '</p>' +
+             '<p>Højde: ' + json.results[index].height + '</p>'+
+             '<p>Køn: ' + json.results[index].gender + '</p>';
+          item[index];
+        }
+        );
+      })
+      .catch((error) => {
+        content.innerhtml = "";
+        test.innerHTML = error;
+      });
+  </script>
+
+
+</body>
+
+</html>
