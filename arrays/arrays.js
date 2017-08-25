@@ -25,4 +25,4 @@ cars.push("Mercedes");
 document.getElementById("demo").innerHTML = cars;
 //____________________________________________________
 
-//opgave 2 i filen arrays2.js
+//opgave 2 og 3 i filen arrays2.js
