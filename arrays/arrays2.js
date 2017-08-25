@@ -1,4 +1,4 @@
-//opgave 2 & 3
+//opgave 2 og 3
 var personer = [
     ['Tobias Brage', 'Nickolas Kristensen'],
     ['Alexander Jensen', 'Emil Berg'],
